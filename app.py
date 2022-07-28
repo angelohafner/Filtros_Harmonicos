@@ -1,12 +1,16 @@
+# import streamlit as st
+
+# st.subheader("Filtro")
+
 
 # Core Pkgs
 import streamlit as st 
 import numpy as np
-import matplotlib.pyplot as plt
-plt.rcParams.update({'font.size': 8})
-import cmath as cm
+# import matplotlib.pyplot as plt
+# plt.rcParams.update({'font.size': 8})
+# import cmath as cm
 from engineering_notation import EngNumber
-from PIL import Image
+# from PIL import Image
 from funcoes import funcoes
 
 
