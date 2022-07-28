@@ -49,69 +49,69 @@ with col3:
      
 
 
-st.subheader("Impedância versus frequência")
-funcoes.grafico_impedancia(h, Z_filtro, Z_equivalente, Z_trafo, h_principal, Z_base_trafo)
+# st.subheader("Impedância versus frequência")
+# funcoes.grafico_impedancia(h, Z_filtro, Z_equivalente, Z_trafo, h_principal, Z_base_trafo)
 
 
-col2_i, col3_i, col4_i = st.columns(3)
+# col2_i, col3_i, col4_i = st.columns(3)
 
  
-st.subheader("Corrente versus frequência")
+# st.subheader("Corrente versus frequência")
 
-h_inteiros, i_trafo_inteiros, i_filtro_inteiros, i_carga_inteiros, v_barra_inteiros, i_resistor_inteiros, i_indutor_inteiros, i_capacitor_inteiros, v_resistor_inteiros, v_indutor_inteiros, v_capacitor_inteiros = funcoes.grandezas_inteiras(h, w, Z_trafo, Z_equivalente, Z_filtro, Z_base_trafo, h_principal, ih_principal, tipo_de_filtro, R_filtro, L_filtro, C_filtro, V_fund, S_trafo_fund)
-tensao_eficaz_resistor, tensao_eficaz_indutor, tensao_eficaz_capacitor      = funcoes.tensoes_eficazes_nos_elementos_do_filtro(v_resistor_inteiros, v_indutor_inteiros, v_capacitor_inteiros)
-corrente_eficaz_resistor, corrente_eficaz_indutor, corrente_eficaz_capacitor = funcoes.correntes_eficazes_nos_elementos_do_filtro(i_resistor_inteiros, i_indutor_inteiros, i_capacitor_inteiros)
-potencia_eficaz_resistor, potencia_eficaz_indutor, potencia_eficaz_capacitor = funcoes.potencias_eficazes(v_resistor_inteiros, v_indutor_inteiros, v_capacitor_inteiros, i_resistor_inteiros, i_indutor_inteiros, i_filtro_inteiros)
-p_resistor_inteiros, p_indutor_inteiros, p_capacitor_inteiros = funcoes.potencias_inteiras(v_resistor_inteiros, v_indutor_inteiros, v_capacitor_inteiros, i_resistor_inteiros, i_indutor_inteiros, i_capacitor_inteiros)
+# h_inteiros, i_trafo_inteiros, i_filtro_inteiros, i_carga_inteiros, v_barra_inteiros, i_resistor_inteiros, i_indutor_inteiros, i_capacitor_inteiros, v_resistor_inteiros, v_indutor_inteiros, v_capacitor_inteiros = funcoes.grandezas_inteiras(h, w, Z_trafo, Z_equivalente, Z_filtro, Z_base_trafo, h_principal, ih_principal, tipo_de_filtro, R_filtro, L_filtro, C_filtro, V_fund, S_trafo_fund)
+# tensao_eficaz_resistor, tensao_eficaz_indutor, tensao_eficaz_capacitor      = funcoes.tensoes_eficazes_nos_elementos_do_filtro(v_resistor_inteiros, v_indutor_inteiros, v_capacitor_inteiros)
+# corrente_eficaz_resistor, corrente_eficaz_indutor, corrente_eficaz_capacitor = funcoes.correntes_eficazes_nos_elementos_do_filtro(i_resistor_inteiros, i_indutor_inteiros, i_capacitor_inteiros)
+# potencia_eficaz_resistor, potencia_eficaz_indutor, potencia_eficaz_capacitor = funcoes.potencias_eficazes(v_resistor_inteiros, v_indutor_inteiros, v_capacitor_inteiros, i_resistor_inteiros, i_indutor_inteiros, i_filtro_inteiros)
+# p_resistor_inteiros, p_indutor_inteiros, p_capacitor_inteiros = funcoes.potencias_inteiras(v_resistor_inteiros, v_indutor_inteiros, v_capacitor_inteiros, i_resistor_inteiros, i_indutor_inteiros, i_capacitor_inteiros)
 
-funcoes.grafico_corrente(h_inteiros, i_trafo_inteiros, i_filtro_inteiros, i_carga_inteiros)
+# funcoes.grafico_corrente(h_inteiros, i_trafo_inteiros, i_filtro_inteiros, i_carga_inteiros)
 
-st.subheader("Corrente versus frequência nos elementos do filtro")
-funcoes.grafico_corrente_filtro(h_inteiros, i_resistor_inteiros, i_indutor_inteiros, i_capacitor_inteiros, i_trafo_inteiros[1])
+# st.subheader("Corrente versus frequência nos elementos do filtro")
+# funcoes.grafico_corrente_filtro(h_inteiros, i_resistor_inteiros, i_indutor_inteiros, i_capacitor_inteiros, i_trafo_inteiros[1])
 
-st.subheader("Tensão versus frequência nos elementos do filtro")
-funcoes.grafico_tensao_filtro(h_inteiros, v_resistor_inteiros, v_indutor_inteiros, v_capacitor_inteiros, V_fund)
+# st.subheader("Tensão versus frequência nos elementos do filtro")
+# funcoes.grafico_tensao_filtro(h_inteiros, v_resistor_inteiros, v_indutor_inteiros, v_capacitor_inteiros, V_fund)
 
-st.subheader("Potência versus frequência nos elementos do filtro")
-funcoes.grafico_potencia_filtro(h_inteiros, p_resistor_inteiros, p_indutor_inteiros, p_capacitor_inteiros)
-
-
+# st.subheader("Potência versus frequência nos elementos do filtro")
+# funcoes.grafico_potencia_filtro(h_inteiros, p_resistor_inteiros, p_indutor_inteiros, p_capacitor_inteiros)
 
 
 
 
-with col2_i:   
-     st.write('$V_C =$', EngNumber(tensao_eficaz_capacitor),' V')
-     st.write('$V_L =$', EngNumber(tensao_eficaz_indutor),' V')
-     st.write('$V_R =$', EngNumber(tensao_eficaz_resistor),' V')
-     st.write('$V_{C1} =$', EngNumber(np.abs(v_capacitor_inteiros[1])),' V')
-     st.write('$V_{L1} =$', EngNumber(np.abs(v_indutor_inteiros[1])),' V')
-     st.write('$V_{R1} =$', EngNumber(np.abs(v_resistor_inteiros[1])),' V')
-     st.write('$V_{Ch} =$', EngNumber(np.abs(v_capacitor_inteiros[h_principal])),' V')
-     st.write('$V_{Lh} =$', EngNumber(np.abs(v_indutor_inteiros[h_principal])),' V')
-     st.write('$V_{Rh} =$', EngNumber(np.abs(v_resistor_inteiros[h_principal])),' V')
-
-with col3_i:
-     st.write('$I_C =$',    EngNumber(corrente_eficaz_capacitor),               ' A')
-     st.write('$I_L =$',    EngNumber(corrente_eficaz_indutor),                 ' A')
-     st.write('$I_R =$',    EngNumber(corrente_eficaz_resistor),                ' A')
-     st.write('$I_{C1} =$', EngNumber(np.abs(i_filtro_inteiros[1])),            ' A')
-     st.write('$I_{L1} =$', EngNumber(np.abs(i_indutor_inteiros[1])),           ' A')
-     st.write('$I_{R1} =$', EngNumber(np.abs(i_resistor_inteiros[1])),          ' A')
-     st.write('$I_{Ch} =$', EngNumber(np.abs(i_filtro_inteiros[h_principal])),  ' A')
-     st.write('$I_{Lh} =$', EngNumber(np.abs(i_indutor_inteiros[h_principal])), ' A')
-     st.write('$I_{Rh} =$', EngNumber(np.abs(i_resistor_inteiros[h_principal])),' A')
 
 
-with col4_i:
+# with col2_i:   
+#      st.write('$V_C =$', EngNumber(tensao_eficaz_capacitor),' V')
+#      st.write('$V_L =$', EngNumber(tensao_eficaz_indutor),' V')
+#      st.write('$V_R =$', EngNumber(tensao_eficaz_resistor),' V')
+#      st.write('$V_{C1} =$', EngNumber(np.abs(v_capacitor_inteiros[1])),' V')
+#      st.write('$V_{L1} =$', EngNumber(np.abs(v_indutor_inteiros[1])),' V')
+#      st.write('$V_{R1} =$', EngNumber(np.abs(v_resistor_inteiros[1])),' V')
+#      st.write('$V_{Ch} =$', EngNumber(np.abs(v_capacitor_inteiros[h_principal])),' V')
+#      st.write('$V_{Lh} =$', EngNumber(np.abs(v_indutor_inteiros[h_principal])),' V')
+#      st.write('$V_{Rh} =$', EngNumber(np.abs(v_resistor_inteiros[h_principal])),' V')
+
+# with col3_i:
+#      st.write('$I_C =$',    EngNumber(corrente_eficaz_capacitor),               ' A')
+#      st.write('$I_L =$',    EngNumber(corrente_eficaz_indutor),                 ' A')
+#      st.write('$I_R =$',    EngNumber(corrente_eficaz_resistor),                ' A')
+#      st.write('$I_{C1} =$', EngNumber(np.abs(i_filtro_inteiros[1])),            ' A')
+#      st.write('$I_{L1} =$', EngNumber(np.abs(i_indutor_inteiros[1])),           ' A')
+#      st.write('$I_{R1} =$', EngNumber(np.abs(i_resistor_inteiros[1])),          ' A')
+#      st.write('$I_{Ch} =$', EngNumber(np.abs(i_filtro_inteiros[h_principal])),  ' A')
+#      st.write('$I_{Lh} =$', EngNumber(np.abs(i_indutor_inteiros[h_principal])), ' A')
+#      st.write('$I_{Rh} =$', EngNumber(np.abs(i_resistor_inteiros[h_principal])),' A')
+
+
+# with col4_i:
          
-     st.write('$Q_C =$',    EngNumber(np.imag(3*potencia_eficaz_capacitor)),        ' VAr')
-     st.write('$Q_L =$',    EngNumber(np.imag(3*potencia_eficaz_indutor)),          ' VAr')
-     st.write('$P_R =$',    EngNumber(np.real(3*potencia_eficaz_resistor)),         ' W')
-     st.write('$Q_{C1} =$', EngNumber(np.imag(3*p_capacitor_inteiros[1])),          ' VAr')
-     st.write('$Q_{L1} =$', EngNumber(np.imag(3*p_indutor_inteiros[1])),            ' VAr')
-     st.write('$P_{R1} =$', EngNumber(np.real(3*p_resistor_inteiros[1])),           ' W')
-     st.write('$Q_{Ch} =$', EngNumber(np.imag(3*p_capacitor_inteiros[h_principal])),' VAr')
-     st.write('$Q_{Lh} =$', EngNumber(np.imag(3*p_indutor_inteiros[h_principal])),  ' VAr')
-     st.write('$P_{Rh} =$', EngNumber(np.real(3*p_resistor_inteiros[h_principal])), ' W')
+#      st.write('$Q_C =$',    EngNumber(np.imag(3*potencia_eficaz_capacitor)),        ' VAr')
+#      st.write('$Q_L =$',    EngNumber(np.imag(3*potencia_eficaz_indutor)),          ' VAr')
+#      st.write('$P_R =$',    EngNumber(np.real(3*potencia_eficaz_resistor)),         ' W')
+#      st.write('$Q_{C1} =$', EngNumber(np.imag(3*p_capacitor_inteiros[1])),          ' VAr')
+#      st.write('$Q_{L1} =$', EngNumber(np.imag(3*p_indutor_inteiros[1])),            ' VAr')
+#      st.write('$P_{R1} =$', EngNumber(np.real(3*p_resistor_inteiros[1])),           ' W')
+#      st.write('$Q_{Ch} =$', EngNumber(np.imag(3*p_capacitor_inteiros[h_principal])),' VAr')
+#      st.write('$Q_{Lh} =$', EngNumber(np.imag(3*p_indutor_inteiros[h_principal])),  ' VAr')
+#      st.write('$P_{Rh} =$', EngNumber(np.real(3*p_resistor_inteiros[h_principal])), ' W')
 
