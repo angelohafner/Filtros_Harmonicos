@@ -38,18 +38,18 @@ with col2:
      I_trafo_fund, Z_base_trafo, Z_trafo_fund = funcoes.dados_transformador_freq_fundamental(S_trafo_fund, V_fund, R_trafo_percentual, X_trafo_percentual)   
 with col3:
      tipo_de_filtro = st.selectbox("Selecione o tipo de filtro", ("Sintonizado", "Amortecido"))
-     imagem = funcoes.selecao_da_imagem(tipo_de_filtro)
-     st.image(imagem, caption='', width=200)   
+     # imagem = funcoes.selecao_da_imagem(tipo_de_filtro)
+     # st.image(imagem, caption='', width=200)   
 with col1:
      R_filtro, L_filtro, C_filtro = funcoes.fundamentais_filtro(reativos_ou_capacitancia, h_principal, V_fund, w_fund, tipo_de_filtro)
-     Z_filtro, Z_trafo, Z_equivalente, w_ressonancia, w_min_lactec, ind_max_impedancia = funcoes.impedancias(tipo_de_filtro, R_filtro, L_filtro, C_filtro, w, h, Z_trafo_fund)
+     # Z_filtro, Z_trafo, Z_equivalente, w_ressonancia, w_min_lactec, ind_max_impedancia = funcoes.impedancias(tipo_de_filtro, R_filtro, L_filtro, C_filtro, w, h, Z_trafo_fund)
 with col3:   
      st.write("$R:$ ", EngNumber(R_filtro)," Ω")
      st.write("$L:$ ", EngNumber(L_filtro)," H")
      st.write("$C:$ ", EngNumber(C_filtro)," F" ) 
-     st.write("$Z_{tr1}:$ ", EngNumber(np.real(Z_trafo_fund))," + 𝑗",EngNumber(np.imag(Z_trafo_fund))," Ω")  
-     st.write("$h_{paralela}:$ ", EngNumber(h[ind_max_impedancia[0][0]]))
-     st.write("$h_{serie}:$ ", EngNumber(w_ressonancia / w_fund))
+     # st.write("$Z_{tr1}:$ ", EngNumber(np.real(Z_trafo_fund))," + 𝑗",EngNumber(np.imag(Z_trafo_fund))," Ω")  
+     # st.write("$h_{paralela}:$ ", EngNumber(h[ind_max_impedancia[0][0]]))
+     # st.write("$h_{serie}:$ ", EngNumber(w_ressonancia / w_fund))
      
 
 
